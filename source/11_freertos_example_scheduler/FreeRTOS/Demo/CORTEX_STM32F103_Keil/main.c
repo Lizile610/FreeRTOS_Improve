@@ -126,7 +126,7 @@ void vTask3( void *pvParameters )
 		printf("T3\r\n");				
 
 		// 如果不休眠的话, 其他任务无法得到执行
-		vTaskDelay( xDelay5ms );
+		//vTaskDelay( xDelay5ms );
 	}
 }
 
