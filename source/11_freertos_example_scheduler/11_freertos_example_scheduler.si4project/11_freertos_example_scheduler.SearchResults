@@ -1,0 +1,9 @@
+---- portTASK_FUNCTION Matches (8 in 3 files) ----
+portmacro.h (FreeRTOS\Source\portable\RVDS\ARM_CM3) line 148 :     #define portTASK_FUNCTION_PROTO( vFunction, pvParameters )    void vFunction( void * pvParameters )
+portmacro.h (FreeRTOS\Source\portable\RVDS\ARM_CM3) line 149 :     #define portTASK_FUNCTION( vFunction, pvParameters )          void vFunction( void * pvParameters )
+tasks.c (FreeRTOS\Source) line 434 :  * The portTASK_FUNCTION_PROTO() macro is used to allow port/compiler specific
+tasks.c (FreeRTOS\Source) line 440 : static portTASK_FUNCTION_PROTO( prvIdleTask, pvParameters ) PRIVILEGED_FUNCTION;
+tasks.c (FreeRTOS\Source) line 3417 :  * The portTASK_FUNCTION() macro is used to allow port/compiler specific
+tasks.c (FreeRTOS\Source) line 3423 : static portTASK_FUNCTION( prvIdleTask, pvParameters )
+timers.c (FreeRTOS\Source) line 158 :     static portTASK_FUNCTION_PROTO( prvTimerTask, pvParameters ) PRIVILEGED_FUNCTION;
+timers.c (FreeRTOS\Source) line 551 :     static portTASK_FUNCTION( prvTimerTask, pvParameters )
