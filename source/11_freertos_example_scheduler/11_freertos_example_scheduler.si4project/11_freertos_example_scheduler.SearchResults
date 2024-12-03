@@ -1,9 +1,11 @@
----- portTASK_FUNCTION Matches (8 in 3 files) ----
-portmacro.h (FreeRTOS\Source\portable\RVDS\ARM_CM3) line 148 :     #define portTASK_FUNCTION_PROTO( vFunction, pvParameters )    void vFunction( void * pvParameters )
-portmacro.h (FreeRTOS\Source\portable\RVDS\ARM_CM3) line 149 :     #define portTASK_FUNCTION( vFunction, pvParameters )          void vFunction( void * pvParameters )
-tasks.c (FreeRTOS\Source) line 434 :  * The portTASK_FUNCTION_PROTO() macro is used to allow port/compiler specific
-tasks.c (FreeRTOS\Source) line 440 : static portTASK_FUNCTION_PROTO( prvIdleTask, pvParameters ) PRIVILEGED_FUNCTION;
-tasks.c (FreeRTOS\Source) line 3417 :  * The portTASK_FUNCTION() macro is used to allow port/compiler specific
-tasks.c (FreeRTOS\Source) line 3423 : static portTASK_FUNCTION( prvIdleTask, pvParameters )
-timers.c (FreeRTOS\Source) line 158 :     static portTASK_FUNCTION_PROTO( prvTimerTask, pvParameters ) PRIVILEGED_FUNCTION;
-timers.c (FreeRTOS\Source) line 551 :     static portTASK_FUNCTION( prvTimerTask, pvParameters )
+---- xSuspendedTaskList Matches (10 in 1 files) ----
+tasks.c (FreeRTOS\Source) line 360 :     PRIVILEGED_DATA static List_t xSuspendedTaskList; /*< Tasks that are currently suspended. */
+eTaskGetState in tasks.c (FreeRTOS\Source) :                 else if( pxStateList == &xSuspendedTaskList )
+vTaskSuspend in tasks.c (FreeRTOS\Source) :             vListInsertEnd( &xSuspendedTaskList, &( pxTCB->xStateListItem ) );
+vTaskSuspend in tasks.c (FreeRTOS\Source) :                 if( listCURRENT_LIST_LENGTH( &xSuspendedTaskList ) == uxCurrentNumberOfTasks ) /*lint !e931 Right has no side effect, just volatile. */
+prvTaskIsTaskSuspended in tasks.c (FreeRTOS\Source) :         if( listIS_CONTAINED_WITHIN( &xSuspendedTaskList, &( pxTCB->xStateListItem ) ) != pdFALSE )
+xTaskGetHandle in tasks.c (FreeRTOS\Source) :                         pxTCB = prvSearchForNameWithinSingleList( &xSuspendedTaskList, pcNameToQuery );
+uxTaskGetSystemState in tasks.c (FreeRTOS\Source) :                         uxTask += prvListTasksWithinSingleList( &( pxTaskStatusArray[ uxTask ] ), &xSuspendedTaskList, eSuspended );
+eTaskConfirmSleepModeStatus in tasks.c (FreeRTOS\Source) :             if( listCURRENT_LIST_LENGTH( &xSuspendedTaskList ) == ( uxCurrentNumberOfTasks - uxNonApplicationTasks ) )
+prvInitialiseTaskLists in tasks.c (FreeRTOS\Source) :             vListInitialise( &xSuspendedTaskList );
+prvAddCurrentTaskToDelayedList in tasks.c (FreeRTOS\Source) :                 vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xStateListItem ) );
